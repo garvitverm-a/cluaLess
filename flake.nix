@@ -1,5 +1,5 @@
 {
-  description = "cluaLess: C/C++ project manager";
+  description = "clualess: C/C++ project manager";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -11,13 +11,13 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
 
-        cluaLess = pkgs.luaPackages.buildLuarocksPackage {
-          pname = "cluaLess";
+        clualess = pkgs.luaPackages.buildLuarocksPackage {
+          pname = "clualess";
           version = "0.1.0";
 
           src = ./.;
 
-          knownRockspec = "${./cluaLess-0.1.0-1.rockspec}";
+          knownRockspec = "${./clualess-0.1.0-1.rockspec}";
           propagatedBuildInputs = with pkgs.luaPackages; [
             luafilesystem
             inspect
@@ -28,9 +28,9 @@
 
           meta = {
             description =
-              "cluaLess is a C/C++ project manager written in Lua, which allows describing the build in an abstract manner";
+              "clualess is a C/C++ project manager written in Lua, which allows describing the build in an abstract manner";
             # TODO: 
-            # homepage = "";
+            homepage = "https://github.com/garvitverm-a/clualess";
             # license = pkgs.lib.licenses.mit;
             # maintainers = [ ];
           };
@@ -38,8 +38,8 @@
 
       in {
         packages = {
-          default = cluaLess;
-          ${cluaLess.pname} = cluaLess;
+          default = clualess;
+          ${clualess.pname} = clualess;
         };
 
         devShells.default = pkgs.mkShell {
@@ -50,8 +50,8 @@
               lua-language-server
               stylua
 
-              cluaLess.propagatedBuildInputs or [ ]
-            ] ++ cluaLess.buildInputs or [ ];
+              clualess.propagatedBuildInputs or [ ]
+            ] ++ clualess.buildInputs or [ ];
 
           shellHook = ''
             echo "Lua version: $(lua -v)"

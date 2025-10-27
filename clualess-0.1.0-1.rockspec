@@ -1,10 +1,10 @@
 package = "clualess"
 version = "0.1.0-1"
 source = {
-	url = "*** please add URL for source tarball, zip or repository here ***",
+	url = "git://github.com/garvitverm-a/clualess",
 }
 description = {
-	homepage = "*** please enter a project homepage ***",
+	homepage = "https://github.com/garvitverm-a/clualess",
 	license = "*** please specify a license ***",
 }
 dependencies = {
@@ -14,5 +14,7 @@ dependencies = {
 }
 build = {
 	type = "builtin",
-	modules = {},
+	modules = {
+		clualess = "./src/main.lua",
+	},
 }

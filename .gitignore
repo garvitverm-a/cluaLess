@@ -1,2 +1,4 @@
 /lua_modules
 /.luarocks
+*.rock
+.DS_Store
